@@ -1,0 +1,57 @@
+<html>
+<head>
+
+</head>
+  <style>
+    body {
+      background-color: powderblue;
+    }
+
+    #result {
+      color: red;
+    }
+
+
+  </style>
+<body>
+
+<h1>House price predict app</h1>
+
+<form>
+  <label for="area">Area, m2:</label><br>
+  <input type="number" id="area" name="area"><br><br>
+  <input type="submit" value="Submit" id="submit_btn" >
+</form>
+
+<h3>Result: </h3>
+
+<span id="result"></span>
+
+<script>
+  const submit_btn = document.querySelector("#submit_btn");
+  const result_html = document.getElementById("result");
+  const endpoint = "http://127.0.0.1:5000/predict";
+
+  submit_btn.addEventListener("click", submit_click, false);
+
+  function submit_click(event) {
+    event.preventDefault();
+    let warn = "Failed connection!";
+    get_prediction().then((data) => {
+      result_html.innerHTML = data;
+    })
+    result_html.innerHTML = warn;
+
+  }
+
+  async function get_prediction() {
+    const response = await fetch(endpoint, { credentials: "same-origin" });
+    // const result_response = await response.json();
+    return response.text();
+  }
+
+</script>
+
+</body>
+
+</html>
