@@ -3,15 +3,21 @@
 
 </head>
   <style>
-    body {
-      background-color: powderblue;
-    }
+body {
+  background-color: powderblue;
+}
 
-    #result {
-      color: red;
-    }
+#result {
+  color: red;
+}
 
+input:invalid {
+  border: 2px dashed red;
+}
 
+input:valid {
+  border: 2px solid black;
+}
   </style>
 <body>
 
@@ -19,7 +25,7 @@
 
 <form>
   <label for="area">Area, m2:</label><br>
-  <input type="number" id="area" name="area"><br><br>
+  <input type="number" id="area" name="area" required min="1" max="100" value="44"><br><br>
   <input type="submit" value="Submit" id="submit_btn" >
 </form>
 
@@ -28,27 +34,45 @@
 <span id="result"></span>
 
 <script>
-  const submit_btn = document.querySelector("#submit_btn");
-  const result_html = document.getElementById("result");
-  const endpoint = "http://127.0.0.1:5000/predict";
+//  const area = document.getElementById("area");
+//  const submit_btn = document.getElementById("submit_btn");
+//  const result = document.getElementById("result");
+
+  const ENDPOINT = "http://127.0.0.1:5000/predict";
 
   submit_btn.addEventListener("click", submit_click, false);
 
   function submit_click(event) {
     event.preventDefault();
-    let warn = "Failed connection!";
-    get_prediction().then((data) => {
-      result_html.innerHTML = data;
+    if (area.valid){
+      console.log("Valid!");
+    }
+    let warn = "Wrong connection!";
+    let house_params = {area: area.value};
+    postJSON(house_params).then((response) => {
+      const price = response['price'];
+      result.innerHTML = price;
     })
-    result_html.innerHTML = warn;
-
+    result.innerHTML = warn;
   }
 
-  async function get_prediction() {
-    const response = await fetch(endpoint, { credentials: "same-origin" });
-    // const result_response = await response.json();
-    return response.text();
+async function postJSON(data) {
+  try {
+    const response = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
+    return result;
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
 
 </script>
 
