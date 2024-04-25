@@ -10,6 +10,7 @@
 4 лаб работы по 8 баллов = 32  
 Активность на занятиях (тесты) = 8
 
+Лекции и литература находятся на [Google Disk](https://drive.google.com/drive/folders/1cUry7oySkAJ5OB5lMGQcMceTO2nWxUHT?usp=drive_link)  
 
 Текущая успеваемость студентов выставляется в таблице, которую можно найти в [файле](docs/results.csv)
 
