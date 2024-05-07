@@ -36,6 +36,7 @@
 Работа с хранилищем S3.  
 
 Файл .env находится в [Google Drive](https://drive.google.com/drive/folders/1cUry7oySkAJ5OB5lMGQcMceTO2nWxUHT?usp=drive_link)    
+Посмотреть содержимое бакета можно по ссылке https://storage.yandexcloud.net/pabd24  
 
 **Результат:**  
 1. 3 CSV файла результатами парсинга для 1, 2, 3 комнатных квартир (по 50 на каждую) - 2 балла.  
