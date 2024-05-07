@@ -7,6 +7,8 @@ import pandas as pd
 from dotenv import dotenv_values
 import boto3
 
+YOUR_ID = '1'
+
 config = dotenv_values(".env")
 client = boto3.client(
     's3',
@@ -38,7 +40,7 @@ def main():
               encoding='utf-8',
               index=False)
     bucket_name = 'pabd24'
-    object_name = '1/' + CSV_PATH
+    object_name = f'{YOUR_ID}/' + CSV_PATH
     client.upload_file(CSV_PATH, bucket_name, object_name)
 
 
