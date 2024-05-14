@@ -1,4 +1,5 @@
-"""  https://github.com/lenarsaitov/cianparser
+"""  Parse data from cian.ru
+https://github.com/lenarsaitov/cianparser
 """
 import datetime
 
@@ -9,7 +10,9 @@ moscow_parser = cianparser.CianParser(location="Москва")
 
 
 def main():
-    """Function docstring"""
+    """
+    Function docstring
+    """
     t = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
     n_rooms = 1
     csv_path = f'data/raw/{n_rooms}_{t}.csv'
