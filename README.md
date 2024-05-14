@@ -46,6 +46,9 @@
 3. Настроен пайплайн для загрузки Ваших данных из хранилища S3 и препроцессингу - 2 балла.   
 4. В README.md Вашего проекта (шаблон - [здесь](docs/README.template.md)) есть описание использования для скриптов - 2 балла. 
 
+ШТРАФ!!! ЗА .env и / или данные в папке data на гитхабе - минус 2 балла.  
+
+
 P.S. Файлы данных можно скачать отсюда [1](https://storage.yandexcloud.net/pabd24/data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_08_32_338904.csv), 
 [2](https://storage.yandexcloud.net/pabd24/data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_15_43_988750.csv), 
 [3](https://storage.yandexcloud.net/pabd24/data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_22_17_675082.csv)
