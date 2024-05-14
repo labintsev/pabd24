@@ -7,3 +7,5 @@ pandas
 boto3
 python-dotenv
 PyGithub
+jupyter
+matplotlib
