@@ -1,6 +1,7 @@
 # external requirements
 flask
 flask-cors
+flask_httpauth
 cianparser
 scikit-learn
 pandas
