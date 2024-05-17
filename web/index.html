@@ -26,6 +26,8 @@ input:valid {
 <form>
   <label for="area">Area, m2:</label><br>
   <input type="number" id="area" name="area" required min="1" max="100" value="44"><br><br>
+  <label for="token">Enter secret token</label><br>
+  <input type="string" id="token" name="token" required><br><br>
   <input type="submit" value="Submit" id="submit_btn" >
 </form>
 
@@ -49,19 +51,21 @@ input:valid {
     }
     let warn = "Wrong connection!";
     let house_params = {area: area.value};
-    postJSON(house_params).then((response) => {
+    postJSON(house_params, token.value).then((response) => {
       const price = response['price'];
       result.innerHTML = price;
     })
     result.innerHTML = warn;
   }
 
-async function postJSON(data) {
+async function postJSON(data, token) {
   try {
     const response = await fetch(ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+        "mode": "no-cors",
       },
       body: JSON.stringify(data),
     });
