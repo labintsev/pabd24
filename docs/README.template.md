@@ -20,13 +20,19 @@ pip install -r requirements.txt
 ## Usage
 
 ### 1. Сбор данных о ценах на недвижимость 
-todo  
+```sh
+python src/parse_cian.py 
+```  
+Параметры для парсинга можно изменить в скрипте.  
+Подробности см. в [репозитории](https://github.com/lenarsaitov/cianparser)  
 
 ### 2. Выгрузка данных в хранилище S3 
 Для доступа к хранилищу скопируйте файл `.env` в корень проекта.  
 
-todo  
-
+```sh
+python src/upload_to_s3.py -i data/raw/file.csv 
+```  
+Что означает аргумент -i?
 ### 3. Загрузка данных из S3 на локальную машину  
 
 todo  
