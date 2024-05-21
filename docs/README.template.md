@@ -9,7 +9,7 @@
 ```sh
 git clone https://github.com/yourgit/pabd24
 cd pabd24
-python -m venv venv
+python3 -m venv venv
 
 source venv/bin/activate  # mac or linux
 .\venv\Scripts\activate   # windows
