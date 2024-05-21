@@ -72,6 +72,14 @@ ssh user1@192.144.12.4
 ```shell
 bash
 ```
+Обновить индексы пакетов системы:  
+```shell
+sudo apt update
+```
+Установить модуль `venv` для pyton3
+```shell
+sudo apt install python3-venv
+```
 Клонировать свой репозиторий:
 ```shell
 git clone https://github.com/labintsev/pabd24
