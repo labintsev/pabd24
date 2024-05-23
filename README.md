@@ -90,5 +90,11 @@ scp .\.env user1@192.144.12.4:/home/user1/pabd24
 ```
 Дальше действуем по инструкции в Вашем README.  
 
+#### Gunicorn сервер
+Установка и запуск: 
+```shell
+pip install gunicorn
+gunicorn src.predict_app:app
+```
 
 ### 4. Версионирование экспериментов. Документирование проекта.
