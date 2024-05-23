@@ -94,7 +94,7 @@ scp .\.env user1@192.144.12.4:/home/user1/pabd24
 Установка и запуск: 
 ```shell
 pip install gunicorn
-gunicorn src.predict_app:app
+gunicorn -b 0.0.0.0 src.predict_app:app --daemon
 ```
 
 ### 4. Версионирование экспериментов. Документирование проекта.
