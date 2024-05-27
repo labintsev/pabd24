@@ -1,15 +1,21 @@
 import time
 from multiprocessing import Pool
 import requests
+from dotenv import dotenv_values
 
-
-endpoint = 'http://127.0.0.1:5000/predict'
+config = dotenv_values(".env")
+endpoint = 'http://192.144.14.182:5000/predict'
+HEADERS = {"Authorization": f"Bearer {config['APP_TOKEN']}"}
 
 
 def do_request(area: int) -> str:
     data = {'area': area}
     t0 = time.time()
-    resp = requests.post(endpoint, json=data).text
+    resp = requests.post(
+        endpoint,
+        json=data,
+        headers=HEADERS
+    ).text
     t = time.time() - t0
     return f'Waited {t:0.2f} sec ' + resp 
 
