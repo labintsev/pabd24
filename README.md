@@ -110,11 +110,13 @@ pkill gunicorn
 Шаблон отчета - [здесь](docs/report_3.md). 
 
 ### 4. Версионирование данных и экспериментов. 
-Инициализация DVC и базовые операции - [Get started](https://dvc.org/doc/start?tab=Windows-Cmd-)
+Инициализация DVC и базовые операции - [Get started](https://dvc.org/doc/start?tab=Windows-Cmd-)  
 Гайд по [credentials](https://yandex.cloud/ru/docs/storage/tools/aws-cli#config-files)  
-В качестве `endpointurl` в настройках dvc указать `https://storage.yandexcloud.net`. 
-Подробнее [здесь](https://dvc.org/doc/user-guide/data-management/remote-storage/amazon-s3#s3-compatible-servers-non-amazon)
+В качестве `endpointurl` в настройках dvc указать `https://storage.yandexcloud.net`.  
+Подробнее [здесь](https://dvc.org/doc/user-guide/data-management/remote-storage/amazon-s3#s3-compatible-servers-non-amazon)    
+Настройка собственного S3 хранилища на [cloud.ru](https://cloud.ru/ru/docs/s3e/ug/topics/tools__sdk-python.html)  
 
+**Результат:**
 Подключение dvc к проекту - 2  
 Настройка пайплайна и версионирование экспериментов - 2 . 
 Обучение лучшей модели - 4. 
