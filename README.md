@@ -10,7 +10,12 @@
 
 **Текущая успеваемость** - 40 баллов, вкл:  
 4 лаб работы по 8 баллов = 32  
-Активность на занятиях (тесты) = 8
+Активность на занятиях (тесты) = 8  
+
+[Тест 1](https://campus.fa.ru/mod/quiz/view.php?id=536912)  
+[Тест 2](https://campus.fa.ru/mod/quiz/view.php?id=536914)  
+[Тест 3](https://campus.fa.ru/mod/quiz/view.php?id=536916)  
+[Тест 4](https://campus.fa.ru/mod/quiz/view.php?id=536918)  
 
 Лекции и литература находятся на [Google Drive](https://drive.google.com/drive/folders/1cUry7oySkAJ5OB5lMGQcMceTO2nWxUHT?usp=drive_link)  
 
