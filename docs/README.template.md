@@ -9,7 +9,7 @@
 ```sh
 git clone https://github.com/yourgit/pabd24
 cd pabd24
-python -m venv venv
+python3 -m venv venv
 
 source venv/bin/activate  # mac or linux
 .\venv\Scripts\activate   # windows
@@ -20,13 +20,19 @@ pip install -r requirements.txt
 ## Usage
 
 ### 1. Сбор данных о ценах на недвижимость 
-todo  
+```sh
+python src/parse_cian.py 
+```  
+Параметры для парсинга можно изменить в скрипте.  
+Подробности см. в [репозитории](https://github.com/lenarsaitov/cianparser)  
 
 ### 2. Выгрузка данных в хранилище S3 
 Для доступа к хранилищу скопируйте файл `.env` в корень проекта.  
 
-todo  
-
+```sh
+python src/upload_to_s3.py -i data/raw/file.csv 
+```  
+Что означает аргумент -i?
 ### 3. Загрузка данных из S3 на локальную машину  
 
 todo  
@@ -43,7 +49,13 @@ todo Описание модели и входных параметров для
 
 todo
 
-### 7. Использование сервиса через веб интерфейс 
+### 7. Запуск приложения gunicorn 
+
+todo
+
+### 8. Использование сервиса через веб интерфейс 
+Для доступа к сервису используйте следующий адрес: 
+`http://192.144.14.182:8000/`
 
 Для использования сервиса используйте файл `web/index.html`.  
 

@@ -6,7 +6,7 @@ BUCKET_NAME = 'pabd24'
 
 config = dotenv_values(".env")
 
-df = pd.read_csv('../docs/results.csv')
+df = pd.read_csv('docs/results.csv')
 
 s3_resource = boto3.resource(
     's3',
@@ -30,4 +30,4 @@ def graduate(user_id: int) -> int:
 
 
 df['2'] = df['ID'].map(graduate)
-df.to_csv('tmp.csv')
+df.to_csv('tmp1.csv', index=False)

@@ -8,7 +8,7 @@ GITHUB_TOKEN = config['GITHUB_TOKEN']
 auth = Auth.Token(GITHUB_TOKEN)
 g = Github(auth=auth)
 
-df = pd.read_csv('../docs/results.csv')
+df = pd.read_csv('docs/results.csv')
 
 
 def graduate(repo_url: str) -> int:

@@ -1,10 +1,12 @@
 """House price prediction service"""
+import os
 from dotenv import dotenv_values
-from flask import Flask, request
+from flask import Flask, request, url_for
 from flask_cors import CORS
 from joblib import load
 from flask_httpauth import HTTPTokenAuth
-
+from flask import send_from_directory
+from utils import predict_io_bounded, predict_cpu_bounded, predict_cpu_multithread
 
 MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
 
@@ -39,9 +41,26 @@ def predict(in_data: dict) -> int:
     return int(price)
 
 
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
 @app.route("/")
 def home():
-    return '<h1>Housing price service.</h1> Use /predict endpoint'
+    return """
+    <html>
+    <head>
+    <link rel="shortcut icon" href="/favicon.ico">
+    </head>
+    <body>
+    <h1>Housing price service.</h1> Use /predict endpoint
+    </body>
+    </html>
+    """
 
 
 @app.route("/predict", methods=['POST'])
