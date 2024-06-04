@@ -15,7 +15,6 @@ logging.basicConfig(
     format='%(asctime)s %(message)s')
 
 TRAIN_DATA = 'data/proc/train.csv'
-VAL_DATA = 'data/proc/val.csv'
 MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
 
 
@@ -23,9 +22,6 @@ def main(args):
     df_train = pd.read_csv(TRAIN_DATA)
     x_train = df_train[['total_meters']]
     y_train = df_train['price']
-    df_val = pd.read_csv(VAL_DATA)
-    x_val = df_val[['total_meters']]
-    y_val = df_val['price']
 
     linear_model = LinearRegression()
     linear_model.fit(x_train, y_train)
@@ -33,12 +29,11 @@ def main(args):
     logger.info(f'Saved to {args.model}')
 
     r2 = linear_model.score(x_train, y_train)
-    y_pred = linear_model.predict(x_val)
-    mae = mean_absolute_error(y_pred, y_val)
+
     c = int(linear_model.coef_[0])
     inter = int(linear_model.intercept_)
 
-    logger.info(f'R2 = {r2:.3f}     MAE = {mae:.0f}     Price = {c} * area + {inter}')
+    logger.info(f'R2 = {r2:.3f}  Price = {c} * area + {inter}')
 
 
 if __name__ == '__main__':
