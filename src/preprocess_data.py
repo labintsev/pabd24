@@ -16,7 +16,7 @@ IN_FILES = ['data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_08_32_338904.csv
             'data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_22_17_675082.csv']
 
 OUT_TRAIN = 'data/proc/train.csv'
-OUT_VAL = 'data/proc/val.csv'
+OUT_TEST = 'data/proc/test.csv'
 
 TRAIN_SIZE = 0.9
 PRICE_THRESHOLD = 30_000_000
@@ -39,14 +39,14 @@ def main(args):
     if args.split == 1:
         train_df.to_csv(OUT_TRAIN)
     elif args.split == 0:
-        val_df.to_csv(OUT_VAL)
+        val_df.to_csv(OUT_TEST)
     elif 0 < args.split < 1:
         train_df.to_csv(OUT_TRAIN)
-        val_df.to_csv(OUT_VAL)
+        val_df.to_csv(OUT_TEST)
     else:
         raise "Wrong split test size!"
 
-    logger.info(f'Write {args.input} to train.csv and val.csv. Train set size: {args.split}')
+    logger.info(f'Write {args.input} to train.csv and test.csv. Train set size: {args.split}')
 
 
 if __name__ == '__main__':
