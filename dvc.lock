@@ -3,9 +3,9 @@ stages:
   preprocess:
     cmd: python src\preprocess_data.py
   train_model:
-    cmd: python src\train_model.py -m models/lin_reg_v1.joblib
+    cmd: python src\train_model.py -m models/lin_reg_ff_v1.joblib
   test_model:
-    cmd: python src\test_model.py -m models/lin_reg_v1.joblib
+    cmd: python src\test_model.py -m models/lin_reg_ff_v1.joblib
   preprocess_train:
     cmd: python src\preprocess_data.py -s 1
   preprocess_test:
