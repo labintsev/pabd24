@@ -119,7 +119,20 @@ pkill gunicorn
 Гайд по [credentials](https://yandex.cloud/ru/docs/storage/tools/aws-cli#config-files)  
 В качестве `endpointurl` в настройках dvc указать `https://storage.yandexcloud.net`.  
 Подробнее [здесь](https://dvc.org/doc/user-guide/data-management/remote-storage/amazon-s3#s3-compatible-servers-non-amazon)    
-Настройка собственного S3 хранилища на [cloud.ru](https://cloud.ru/ru/docs/s3e/ug/topics/tools__sdk-python.html)  
+Опционально: Настройка собственного S3 хранилища на [cloud.ru](https://cloud.ru/ru/docs/s3e/ug/topics/tools__sdk-python.html)  
+
+Настройка пайплайна по официальной [инструкции](https://dvc.org/doc/start/data-pipelines/data-pipelines). 
+Их проект скачивать не нужно, stages добавлять командой 
+```
+dvc stage add -n preprocess python src/preprocess_data.py
+```
+Всего четыре стадии: 
+1. подготовка данных для обучения,
+2. подготовка данных для тестирования
+3. обучение модели
+4. тестирование модели
+   
+Подробнее см. в файле [dvc.yaml](dvc.yaml).  
 
 Обучение лучшей модели - это поиск наиболее информативных признаков, архитектуры модели и гиперпараметров обучения.  
 Ваша лучшая модель должна работать в gunicorn-сервисе на том адресе, который указан у Вас в README.  
