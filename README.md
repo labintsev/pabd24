@@ -121,7 +121,18 @@ pkill gunicorn
 Подробнее [здесь](https://dvc.org/doc/user-guide/data-management/remote-storage/amazon-s3#s3-compatible-servers-non-amazon)    
 Настройка собственного S3 хранилища на [cloud.ru](https://cloud.ru/ru/docs/s3e/ug/topics/tools__sdk-python.html)  
 
+Обучение лучшей модели - это поиск наиболее информативных признаков, архитектуры модели и гиперпараметров обучения.  
+Ваша лучшая модель должна работать в gunicorn-сервисе на том адресе, который указан у Вас в README.  
+Тестирование сервиса будет происходить с помощью синхронных запросов, скрипт [здесь](grads/service_test.py).  
+В запросе будут все поля, что и в исходных csv-файлах.  
+Пример запроса: 
+```
+{'author': 'Verges of estate', 'author_type': 'real_estate_agent', 'url': 'https://www.cian.ru/sale/flat/294966171/', 'location': 'Москва', 'deal_type': 'sale', 'accommodation_type': 'flat', 'floor': 4, 'floors_count': 30, 'rooms_count': 3, 'total_meters': 115.6, 'district': 'Южнопортовый', 'street': ' 1-я Машиностроения', 'house_number': '10', 'underground': 'Дубровка', 'residential_complex': 'Дубровская Слобода', 'url_id': 294966171, 'first_floor': False, 'last_floor': False, 'area': 115.6}
+```
+Метрика - средняя ошибка на 100 случайных объектах недвижимости.  
+
+
 **Результат:**
 1. Подключение dvc к проекту, настройка пайплайна и версионирование экспериментов  - 4 балла
-2. Обучение лучшей модели - 4 балла   
+2. Обучение лучшей модели и деплой на сервер - 4 балла   
 3. Контейнеризация Docker и публикация образа на DockerHub - 4 балла.
