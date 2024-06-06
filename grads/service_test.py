@@ -1,3 +1,8 @@
+"""
+Test prediction web-service
+If you have error: 503 Response, disable proxies in your requests
+https://stackoverflow.com/questions/40430799/503-reponse-when-trying-to-use-python-request-on-local-website
+"""
 import time
 import numpy as np
 import requests
