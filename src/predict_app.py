@@ -8,7 +8,7 @@ from flask_httpauth import HTTPTokenAuth
 from flask import send_from_directory
 from utils import predict_io_bounded, predict_cpu_bounded, predict_cpu_multithread
 
-MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
+MODEL_SAVE_PATH = 'models/lin_reg_ff_v1.joblib'
 
 app = Flask(__name__)
 CORS(app)
@@ -37,7 +37,14 @@ def predict(in_data: dict) -> int:
     :rtype: int
     """
     area = float(in_data['area'])
-    price = model.predict([[area]])
+    floor = int(in_data['floor'])
+    floors_count = int(in_data['floors_count'])
+    is_first = (floor == 1)
+    is_last = (floor == floors_count)
+    price = model.predict([[area,
+                            is_first,
+                            is_last,
+                            floors_count]])
     return int(price)
 
 
