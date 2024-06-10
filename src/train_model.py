@@ -1,4 +1,10 @@
-"""Train model and save checkpoint"""
+"""Train model and save checkpoint
+lin_reg_ff_v1 - use features:
+['total_meters',
+'first_floor',
+'last_floor',
+'floors_count']
+"""
 
 import argparse
 import logging
