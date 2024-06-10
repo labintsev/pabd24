@@ -48,7 +48,6 @@ def predict(in_data: dict) -> int:
     return int(price)
 
 
-
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(
