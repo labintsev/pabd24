@@ -1,6 +1,6 @@
 stages:
   preprocess_train:
-    cmd: python src\preprocess_data.py -s 1
+    cmd: python src\preprocess_data.py -s 1 -i data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_08_32_338904.csv data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_15_43_988750.csv data/raw/cian_flat_sale_1_50_moskva_26_Apr_2024_14_22_17_675082.csv
   preprocess_test:
     cmd: python src\preprocess_data.py -s 0 -i data/raw/1_2024-05-30_19-16.csv data/raw/2_2024-05-30_19-27.csv
   train_model:
