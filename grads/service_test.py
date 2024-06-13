@@ -9,7 +9,7 @@ import requests
 from dotenv import dotenv_values
 import pandas as pd
 
-endpoint = 'http://127.0.0.1:5000/predict'
+endpoint = 'http://192.144.13.190:8000/predict'
 
 config = dotenv_values(".env")
 HEADERS = {"Authorization": f"Bearer {config['APP_TOKEN']}"}
@@ -21,7 +21,8 @@ def do_request(data: dict) -> tuple:
         endpoint,
         json=data,
         headers=HEADERS
-    ).json()
+    )
+    resp = resp.json()
     t = time.time() - t0
     return t, resp['price']
 
