@@ -148,7 +148,18 @@ dvc stage add -n preprocess python src/preprocess_data.py
 Метрика - средняя ошибка на 100 случайных объектах недвижимости.  
 
 
+[Docker tutorial](https://docs.docker.com/get-started/)  
+
+Установка docker на [ubuntu](https://docs.docker.com/engine/install/ubuntu/)  
+
 **Результат:**
 1. Подключение dvc к проекту, настройка пайплайна и версионирование экспериментов  - 4 балла
 2. Обучение лучшей модели и деплой на сервер - 4 балла   
 3. Контейнеризация Docker и публикация образа на DockerHub - 4 балла.
+
+Ваш репозиторий должен содержать инструкцию по запуску приложения в docker, например:  
+
+Для запуска приложения используйте docker:
+```shell
+docker run ailabintsev/pabd24:latest
+```
