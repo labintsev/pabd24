@@ -151,7 +151,7 @@ dvc stage add -n preprocess python src/preprocess_data.py
 Метрика - средняя ошибка на 100 случайных объектах недвижимости.  
 
 
-[Docker tutorial](https://docs.docker.com/get-started/)  
+[Docker tutorial](https://docs.docker.com/guides/workshop/)  
 
 Установка docker на [ubuntu](https://docs.docker.com/engine/install/ubuntu/)  
 
