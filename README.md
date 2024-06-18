@@ -167,3 +167,32 @@ dvc stage add -n preprocess python src/preprocess_data.py
 ```shell
 docker run ailabintsev/pabd24:latest
 ```
+
+#### P.S. cron and airflow
+Для автоматического выполнения задачи (например, парсинга данных) целесообразно написать скрипт. 
+В нашем случае это [task](tasks/task.sh) - запуск парсинга Циан. 
+Сделать скрипт исполняемым нужно с помощью команды 
+
+```shell
+chmod +x tasks/task.sh
+```
+Проверьте возможность выплнения скрипта перед его добавлением в cron!  
+
+```shell
+./tasks/task.sh
+```
+
+Для создания периодических заданий нужно редактировать таблицу cron с помощью команды:  
+```shell
+crontab -e
+```
+Для выполнения скрипта `task.sh` каждую минуту нужно добавить следующую строку:  
+`* * * * * cd /home/user1/pabd24 && ./tasks/task.sh`  
+
+Журнал событий сервиса cron можно посмотреть командой 
+```shell
+sudo journalctl -u cron -f
+```
+
+Для более продвинутых заданий нужно использовать более мощный инструмент, например, airflow. 
+Самый простой способ запуска - через [docker](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)  
