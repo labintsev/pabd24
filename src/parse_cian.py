@@ -19,7 +19,7 @@ def main():
     data = moscow_parser.get_flats(
         deal_type="sale",
         rooms=(n_rooms,),
-        with_saving_csv=True,
+        with_saving_csv=False,
         additional_settings={
             "start_page": 1,
             "end_page": 2,
